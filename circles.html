@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Circles</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/circles.css">	
+	<script type="text/javascript" src="assets/paper-full.js"></script>
+	<script type="text/paperscript" canvas="myCanvas">
+
+
+	var x,y;
+	
+	var myCircle = new Path.Circle();
+	
+	myCircle.fillColor = '';
+	
+	function onKeyDown(event) {
+		
+		//if (event.key)
+		myCircle.opacity=0.01;
+		x=Math.floor(Math.random()*view.size.width);
+		y=Math.floor(Math.random()*view.size.height);
+		myCircle = new Path.Circle(new Point(x, y), 60);
+		myCircle.strokeColor='black';
+		myCircle.fillColor = 'purple';
+
+	}
+
+		
+	console.log(myCircle);
+	function onFrame(event) {
+				// Each frame, change the fill color of the path slightly by
+				// adding 1 to its hue:
+
+				myCircle.fillColor.hue += 1;
+				if (event.count%2==0) myCircle.scale(0.9);
+
+	}
+
+
+
+				
+
+			
+
+	</script>
+</head>
+<body>
+
+
+<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
